@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark Mode Color Palette - Charcoal & Teal */
+    --background: 31 33 33; /* #1F2121 Charcoal-700 */
+    --foreground: 245 245 245; /* #F5F5F5 Light Gray-200 */
+    --card: 38 40 40; /* #262828 Charcoal-800 */
+    --card-foreground: 245 245 245;
+    --popover: 38 40 40;
+    --popover-foreground: 245 245 245;
+    --primary: 32 139 155; /* #208B9B Teal-500 */
+    --primary-foreground: 252 252 249; /* #FCFCF9 */
+    --primary-hover: 45 166 178; /* #2DA6B2 Teal-400 */
+    --secondary: 38 40 40;
+    --secondary-foreground: 245 245 245;
+    --muted: 119 124 124; /* Gray-400 */
+    --muted-foreground: 167 169 169; /* #A7A9A9 Gray-300 70% opacity */
+    --accent: 32 139 155;
+    --accent-foreground: 252 252 249;
+    --destructive: 255 84 89; /* #FF5459 Red-400 */
+    --destructive-foreground: 245 245 245;
+    --border: 119 124 124; /* rgba(119, 124, 124, 0.3) */
+    --input: 119 124 124;
+    --ring: 32 139 155;
+    --radius: 0.5rem;
+    
+    /* Risk Colors */
+    --risk-critical: 255 84 89; /* #FF5459 */
+    --risk-high: 230 129 95; /* #E6815F */
+    --risk-medium: 255 215 0; /* #FFD700 */
+    --risk-low: 50 184 198; /* #32B8C6 */
+    --success: 32 139 155; /* #208B9B */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    letter-spacing: -0.01em;
+  }
+  
+  /* Glassmorphism utility */
+  .glass {
+    background: rgba(38, 40, 40, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(119, 124, 124, 0.2);
+  }
+  
+  /* Smooth transitions */
+  * {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    transition-duration: 150ms;
+  }
+}
+
