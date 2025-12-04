@@ -5,3 +5,6 @@
 
 # Игнорировать все текстовые файлы
 **/*.txt
+
+# Разрешить backend requirements
+!backend/requirements.txt
