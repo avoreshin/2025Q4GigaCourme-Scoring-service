@@ -1,0 +1,25 @@
+
+---
+description: Git conventions for team development
+alwaysApply: true
+---
+
+# Git Conventions
+
+## Branch Naming
+- feature/<task-id>-<short-description>
+- fix/<task-id>-<short-description>
+- hotfix/<task-id>-<short-description>
+- refactor/<task-id>-<short-description>
+
+## Commit Message Format
+Use Conventional Commits:
+<type>(<scope>): <description>
+
+Allowed types: feat, fix, docs, style, refactor, test, chore, perf, ci, build, revert
+
+## Before Committing
+- Run linter: npm run lint
+- Run tests: npm test
+- Verify no console.logs in production code
+- Ensure commit is atomic and small

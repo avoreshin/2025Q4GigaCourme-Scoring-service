@@ -1,0 +1,23 @@
+---
+description: Code style guidelines for the team
+alwaysApply: true
+---
+
+# Code Style Guidelines
+
+## TypeScript/JavaScript
+- Использовать функциональные компоненты с hooks
+- Предпочитать const вместо let, не использовать var
+- Использовать async/await вместо .then()
+- Максимальная длина строки: 100 символов
+
+## Naming Conventions
+- camelCase для переменных и функций
+- PascalCase для классов и компонентов
+- UPPER_SNAKE_CASE для констант
+- kebab-case для имён файлов
+
+## Error Handling
+- Оборачивать асинхронные операции в try/catch
+- Логировать ошибки с контекстной информацией
+- Не «глотать» ошибки, возвращать осмысленные сообщения
