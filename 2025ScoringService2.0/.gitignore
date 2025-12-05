@@ -3,6 +3,12 @@
 !README.md
 !**/README.md
 
+
+# Игнорировать все файлы .env
+**/.env
+!backend/.env
+!frontend/.env
+!docker-compose.yml
 # Игнорировать все текстовые файлы
 **/*.txt
 
