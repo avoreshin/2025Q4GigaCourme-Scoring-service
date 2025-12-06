@@ -18,30 +18,30 @@ const categoryConfig = [
 export default function ScoreBreakdown({ breakdown }: ScoreBreakdownProps) {
   if (!breakdown || Object.keys(breakdown).length === 0) {
     return (
-      <div className="glass rounded-lg p-6">
-        <div className="flex items-center gap-3 mb-6">
-          <BarChart3 className="w-6 h-6 text-primary" />
-          <h2 className="text-h3 font-semibold text-foreground">Анализ категорий</h2>
+      <div className="glass rounded-lg p-4 md:p-6">
+        <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+          <BarChart3 className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+          <h2 className="text-lg md:text-h3 font-semibold text-foreground">Анализ категорий</h2>
         </div>
-        <div className="text-center py-8">
-          <p className="text-body text-muted-foreground">Данные разбивки недоступны</p>
+        <div className="text-center py-6 md:py-8">
+          <p className="text-body-sm md:text-body text-muted-foreground">Данные разбивки недоступны</p>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="glass rounded-lg p-6 hover:shadow-card-hover transition-all">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center">
-          <BarChart3 className="w-6 h-6 text-primary" />
+    <div className="glass rounded-lg p-4 md:p-6 hover:shadow-card-hover transition-all">
+      <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+        <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-primary/20 flex items-center justify-center">
+          <BarChart3 className="w-5 h-5 md:w-6 md:h-6 text-primary" />
         </div>
         <div>
-          <h2 className="text-h3 font-semibold text-foreground">Анализ категорий</h2>
-          <p className="text-body-sm text-muted-foreground">Детальная разбивка по критериям</p>
+          <h2 className="text-lg md:text-h3 font-semibold text-foreground">Анализ категорий</h2>
+          <p className="text-xs md:text-body-sm text-muted-foreground">Детальная разбивка по критериям</p>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
         {categoryConfig.map((category) => {
           const score = breakdown[category.key] ?? 0
           const percentage = Math.max(0, Math.min(score, 100))
@@ -50,16 +50,16 @@ export default function ScoreBreakdown({ breakdown }: ScoreBreakdownProps) {
           return (
             <div 
               key={category.key} 
-              className="p-4 rounded-lg bg-card/50 border border-border/20 hover:border-primary/40 transition-all"
+              className="p-3 md:p-4 rounded-lg bg-card/50 border border-border/20 hover:border-primary/40 transition-all"
             >
-              <div className="flex items-center gap-3 mb-3">
-                <Icon className={`w-5 h-5 ${category.color}`} />
+              <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
+                <Icon className={`w-4 h-4 md:w-5 md:h-5 ${category.color}`} />
                 <div className="flex-1">
                   <div className="flex justify-between items-center">
-                    <span className="text-body-sm font-medium text-foreground">
+                    <span className="text-xs md:text-body-sm font-medium text-foreground">
                       {category.label}
                     </span>
-                    <span className="text-body font-mono font-semibold text-primary">
+                    <span className="text-sm md:text-body font-mono font-semibold text-primary">
                       {score.toFixed(0)}
                     </span>
                   </div>

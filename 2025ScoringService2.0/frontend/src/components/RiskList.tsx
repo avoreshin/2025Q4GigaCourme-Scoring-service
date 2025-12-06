@@ -58,35 +58,35 @@ export default function RiskList({ risks }: RiskListProps) {
   
   if (topRisks.length === 0) {
     return (
-      <div className="glass rounded-lg p-6 hover:shadow-card-hover transition-all">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="w-12 h-12 rounded-lg bg-destructive/20 flex items-center justify-center">
-            <AlertTriangle className="w-6 h-6 text-destructive" />
+      <div className="glass rounded-lg p-4 md:p-6 hover:shadow-card-hover transition-all">
+        <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+          <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-destructive/20 flex items-center justify-center">
+            <AlertTriangle className="w-5 h-5 md:w-6 md:h-6 text-destructive" />
           </div>
           <div>
-            <h2 className="text-h3 font-semibold text-foreground">Топ-5 рисков</h2>
-            <p className="text-body-sm text-muted-foreground">Анализ потенциальных угроз</p>
+            <h2 className="text-lg md:text-h3 font-semibold text-foreground">Топ-5 рисков</h2>
+            <p className="text-xs md:text-body-sm text-muted-foreground">Анализ потенциальных угроз</p>
           </div>
         </div>
-        <div className="text-center py-8">
-          <p className="text-body text-muted-foreground">Риски не выявлены</p>
+        <div className="text-center py-6 md:py-8">
+          <p className="text-body-sm md:text-body text-muted-foreground">Риски не выявлены</p>
         </div>
       </div>
     )
   }
   
   return (
-    <div className="glass rounded-lg p-6 hover:shadow-card-hover transition-all">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="w-12 h-12 rounded-lg bg-destructive/20 flex items-center justify-center">
-          <AlertTriangle className="w-6 h-6 text-destructive" />
+    <div className="glass rounded-lg p-4 md:p-6 hover:shadow-card-hover transition-all">
+      <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+        <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-destructive/20 flex items-center justify-center">
+          <AlertTriangle className="w-5 h-5 md:w-6 md:h-6 text-destructive" />
         </div>
         <div>
-          <h2 className="text-h3 font-semibold text-foreground">Топ-5 рисков</h2>
-          <p className="text-body-sm text-muted-foreground">Анализ потенциальных угроз</p>
+          <h2 className="text-lg md:text-h3 font-semibold text-foreground">Топ-5 рисков</h2>
+          <p className="text-xs md:text-body-sm text-muted-foreground">Анализ потенциальных угроз</p>
         </div>
       </div>
-      <div className="space-y-3">
+      <div className="space-y-2 md:space-y-3">
         {topRisks.map((risk, index) => {
           const config = getRiskConfig(risk)
           const level = risk.level || (risk.probability && risk.probability > 0.7 ? 'critical' : risk.probability && risk.probability > 0.5 ? 'high' : risk.probability && risk.probability > 0.3 ? 'medium' : 'low')
@@ -104,33 +104,33 @@ export default function RiskList({ risks }: RiskListProps) {
           return (
             <div
               key={index}
-              className={`${bgClass} border-l-[3px] ${borderClass} rounded-base p-4 hover:opacity-90 transition-all`}
+              className={`${bgClass} border-l-[3px] ${borderClass} rounded-base p-3 md:p-4 hover:opacity-90 transition-all`}
             >
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-2 md:gap-3">
                 <div className={`${colorClass} flex-shrink-0 mt-0.5`}>
-                  <span className="text-lg">{config.emoji}</span>
+                  <span className="text-base md:text-lg">{config.emoji}</span>
                 </div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className={`text-body-sm font-semibold ${colorClass}`}>
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2 mb-1">
+                    <span className={`text-xs md:text-body-sm font-semibold ${colorClass}`}>
                       {index + 1}. {config.label}:
                     </span>
-                    <span className="text-body font-medium text-foreground">
+                    <span className="text-sm md:text-body font-medium text-foreground">
                       {risk.description || `Risk ${index + 1}`}
                     </span>
                   </div>
                   {risk.probability !== undefined && (
-                    <p className="text-body-sm text-muted-foreground mb-1">
+                    <p className="text-xs md:text-body-sm text-muted-foreground mb-1">
                       Вероятность: {(risk.probability * 100).toFixed(0)}%
                     </p>
                   )}
                   {risk.impact && (
-                    <p className="text-body-sm text-muted-foreground mb-1">
+                    <p className="text-xs md:text-body-sm text-muted-foreground mb-1">
                       Влияние: {risk.impact}
                     </p>
                   )}
                   {risk.mitigation && (
-                    <p className="text-body-sm text-foreground mt-2">
+                    <p className="text-xs md:text-body-sm text-foreground mt-2">
                       <span className="font-medium">Смягчение:</span> {risk.mitigation}
                     </p>
                   )}
