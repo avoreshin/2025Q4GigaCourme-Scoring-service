@@ -11,9 +11,9 @@ const api = axios.create({
 
 // Startups
 export const startupsApi = {
-  getAll: (params?: any) => api.get('/startups', { params }),
+  getAll: (params?: any) => api.get('/startups/', { params }),
   getById: (id: number) => api.get(`/startups/${id}`),
-  create: (data: any) => api.post('/startups', data),
+  create: (data: any) => api.post('/startups/', data),
   update: (id: number, data: any) => api.put(`/startups/${id}`, data),
   delete: (id: number) => api.delete(`/startups/${id}`),
   upload: (formData: FormData) => api.post('/startups/upload', formData, {
@@ -30,7 +30,7 @@ export const pitchDocumentsApi = {
 
 // Scorings
 export const scoringsApi = {
-  getAll: (params?: any) => api.get('/scorings', { params }),
+  getAll: (params?: any) => api.get('/scorings/', { params }),
   getById: (id: number) => api.get(`/scorings/${id}`),
   create: (startupId: number) => api.post(`/scorings/startups/${startupId}/score`),
   addComment: (id: number, text: string) => api.post(`/scorings/${id}/comments`, { text }),
@@ -38,7 +38,7 @@ export const scoringsApi = {
 
 // Leaderboard
 export const leaderboardApi = {
-  get: (params?: any) => api.get('/leaderboard', { params }),
+  get: (params?: any) => api.get('/leaderboard/', { params }),
 }
 
 // Export
