@@ -13,7 +13,8 @@ RUN npm ci
 COPY . .
 
 # Build argument for API URL
-ARG VITE_API_URL=http://localhost:8000/api
+# Use relative path /api so nginx can proxy it to backend
+ARG VITE_API_URL=/api
 ENV VITE_API_URL=$VITE_API_URL
 
 # Build the application

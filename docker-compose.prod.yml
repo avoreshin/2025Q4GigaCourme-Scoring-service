@@ -46,7 +46,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile.prod
       args:
-        - VITE_API_URL=${VITE_API_URL:-http://109.69.21.37/api}
+        - VITE_API_URL=${VITE_API_URL:-/api}
     container_name: scoring_frontend
     ports:
       - "3000:80"
