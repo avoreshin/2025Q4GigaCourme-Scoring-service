@@ -55,6 +55,13 @@ services:
     restart: unless-stopped
     networks:
       - scoring_network
+      - dokploy-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=dokploy-network"
+      # Use port 3000 (host port) for Traefik
+      - "traefik.http.services.web-scoringservice-opntp9-5-web.loadbalancer.server.port=3000"
+      - "traefik.http.services.web-scoringservice-opntp9-5-websecure.loadbalancer.server.port=3000"
 
 volumes:
   postgres_data:
@@ -63,4 +70,6 @@ volumes:
 networks:
   scoring_network:
     driver: bridge
+  dokploy-network:
+    external: true
 
