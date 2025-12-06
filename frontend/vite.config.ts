@@ -16,6 +16,22 @@ export default defineConfig({
     watch: {
       usePolling: true,
     },
+    // Allow all hosts in development
+    allowedHosts: [
+      'localhost',
+      '.traefik.me',
+      '.local',
+    ],
+  },
+  preview: {
+    host: true,
+    port: 3000,
+    // Allow all hosts in preview mode
+    allowedHosts: [
+      'localhost',
+      '.traefik.me',
+      '.local',
+    ],
   },
 })
 
