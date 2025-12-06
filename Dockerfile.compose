@@ -1,0 +1,29 @@
+# Общий Dockerfile с docker-compose для Dokploy
+# ТРЕБУЕТ привилегированного режима (privileged mode) в Dokploy
+# Использует Docker-in-Docker для запуска docker-compose
+
+FROM docker:24-dind
+
+# Установка docker-compose
+RUN apk add --no-cache docker-compose bash curl
+
+WORKDIR /app
+
+# Копируем docker-compose файл
+COPY docker-compose.prod.yml /app/docker-compose.yml
+
+# Копируем все необходимые файлы для сборки
+COPY backend /app/backend
+COPY frontend /app/frontend
+
+# Создаем скрипт запуска
+RUN echo '#!/bin/sh' > /app/start.sh && \
+    echo 'dockerd-entrypoint.sh &' >> /app/start.sh && \
+    echo 'sleep 10' >> /app/start.sh && \
+    echo 'cd /app && docker-compose up --build' >> /app/start.sh && \
+    chmod +x /app/start.sh
+
+EXPOSE 8000 3000 5432
+
+CMD ["/app/start.sh"]
+
