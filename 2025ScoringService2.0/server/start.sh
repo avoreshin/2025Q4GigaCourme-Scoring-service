@@ -47,3 +47,4 @@ echo "To view logs: docker compose -f docker-compose.prod.yml logs -f"
 echo "To stop: ./server/stop.sh"
 
 
+

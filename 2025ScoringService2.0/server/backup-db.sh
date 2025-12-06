@@ -43,3 +43,4 @@ find "$BACKUP_DIR" -name "scoring_db_*.sql.gz" -mtime +7 -delete
 echo "✅ Backup completed!"
 
 
+

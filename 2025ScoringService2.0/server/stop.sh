@@ -18,3 +18,4 @@ docker compose -f docker-compose.prod.yml down
 echo "✅ Startup Scoring System stopped!"
 
 
+

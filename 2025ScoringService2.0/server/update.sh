@@ -54,3 +54,4 @@ echo ""
 echo "To view logs: docker compose -f docker-compose.prod.yml logs -f"
 
 
+
