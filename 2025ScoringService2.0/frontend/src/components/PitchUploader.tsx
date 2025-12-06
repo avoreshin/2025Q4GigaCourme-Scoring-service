@@ -73,92 +73,92 @@ export default function PitchUploader({ onUpload }: PitchUploaderProps) {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 md:space-y-6">
       {/* Upload Tabs */}
-      <div className="flex space-x-2 border-b border-border/20">
+      <div className="flex space-x-1 md:space-x-2 border-b border-border/20 overflow-x-auto">
         <button
           onClick={() => setUploadType('file')}
-          className={`px-4 py-3 text-sm font-medium transition-colors relative ${
+          className={`px-3 md:px-4 py-2 md:py-3 text-xs md:text-sm font-medium transition-colors relative whitespace-nowrap ${
             uploadType === 'file'
               ? 'text-primary border-b-2 border-primary'
               : 'text-muted-foreground hover:text-foreground'
           }`}
         >
-          <div className="flex items-center gap-2">
-            <FileText className="w-4 h-4" />
+          <div className="flex items-center gap-1 md:gap-2">
+            <FileText className="w-3 h-3 md:w-4 md:h-4" />
             <span>File Upload</span>
           </div>
         </button>
         <button
           onClick={() => setUploadType('url')}
-          className={`px-4 py-3 text-sm font-medium transition-colors relative ${
+          className={`px-3 md:px-4 py-2 md:py-3 text-xs md:text-sm font-medium transition-colors relative whitespace-nowrap ${
             uploadType === 'url'
               ? 'text-primary border-b-2 border-primary'
               : 'text-muted-foreground hover:text-foreground'
           }`}
         >
-          <div className="flex items-center gap-2">
-            <LinkIcon className="w-4 h-4" />
+          <div className="flex items-center gap-1 md:gap-2">
+            <LinkIcon className="w-3 h-3 md:w-4 md:h-4" />
             <span>URL</span>
           </div>
         </button>
         <button
           onClick={() => setUploadType('text')}
-          className={`px-4 py-3 text-sm font-medium transition-colors relative ${
+          className={`px-3 md:px-4 py-2 md:py-3 text-xs md:text-sm font-medium transition-colors relative whitespace-nowrap ${
             uploadType === 'text'
               ? 'text-primary border-b-2 border-primary'
               : 'text-muted-foreground hover:text-foreground'
           }`}
         >
-          <div className="flex items-center gap-2">
-            <Type className="w-4 h-4" />
+          <div className="flex items-center gap-1 md:gap-2">
+            <Type className="w-3 h-3 md:w-4 md:h-4" />
             <span>Paste Text</span>
           </div>
         </button>
       </div>
 
       {/* Form Fields */}
-      <div className="space-y-4">
+      <div className="space-y-3 md:space-y-4">
         <div>
-          <label className="block text-sm font-medium mb-2 text-foreground">Startup Name *</label>
+          <label className="block text-xs md:text-sm font-medium mb-2 text-foreground">Startup Name *</label>
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full px-4 py-2 bg-card border border-border rounded-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+            className="w-full px-3 md:px-4 py-2 bg-card border border-border rounded-base text-sm md:text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
             required
             placeholder="Enter startup name"
           />
         </div>
 
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
           <div>
-            <label className="block text-sm font-medium mb-2 text-foreground">Industry</label>
+            <label className="block text-xs md:text-sm font-medium mb-2 text-foreground">Industry</label>
             <input
               type="text"
               value={industry}
               onChange={(e) => setIndustry(e.target.value)}
-              className="w-full px-4 py-2 bg-card border border-border rounded-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+              className="w-full px-3 md:px-4 py-2 bg-card border border-border rounded-base text-sm md:text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
               placeholder="Tech, SaaS, etc."
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-2 text-foreground">Stage</label>
+            <label className="block text-xs md:text-sm font-medium mb-2 text-foreground">Stage</label>
             <input
               type="text"
               value={stage}
               onChange={(e) => setStage(e.target.value)}
-              className="w-full px-4 py-2 bg-card border border-border rounded-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+              className="w-full px-3 md:px-4 py-2 bg-card border border-border rounded-base text-sm md:text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
               placeholder="Seed, Series A, etc."
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-2 text-foreground">Geography</label>
+            <label className="block text-xs md:text-sm font-medium mb-2 text-foreground">Geography</label>
             <input
               type="text"
               value={geography}
               onChange={(e) => setGeography(e.target.value)}
-              className="w-full px-4 py-2 bg-card border border-border rounded-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+              className="w-full px-3 md:px-4 py-2 bg-card border border-border rounded-base text-sm md:text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
               placeholder="US, EU, etc."
             />
           </div>
@@ -167,7 +167,7 @@ export default function PitchUploader({ onUpload }: PitchUploaderProps) {
         {/* File Upload Area */}
         {uploadType === 'file' && (
           <div
-            className={`glass rounded-lg p-12 text-center transition-all ${
+            className={`glass rounded-lg p-6 md:p-12 text-center transition-all ${
               dragActive
                 ? 'border-2 border-solid border-primary bg-primary/10'
                 : 'border-2 border-dashed border-primary/40 hover:border-primary/60'
@@ -177,14 +177,14 @@ export default function PitchUploader({ onUpload }: PitchUploaderProps) {
             onDragOver={handleDrag}
             onDrop={handleDrop}
           >
-            <div className="mb-4">
-              <FileText className="w-12 h-12 mx-auto text-primary mb-4" />
-              <h3 className="text-h3 text-foreground mb-2">Upload Your Pitch</h3>
-              <p className="text-body text-muted-foreground mb-6">
+            <div className="mb-3 md:mb-4">
+              <FileText className="w-8 h-8 md:w-12 md:h-12 mx-auto text-primary mb-3 md:mb-4" />
+              <h3 className="text-lg md:text-h3 text-foreground mb-2">Upload Your Pitch</h3>
+              <p className="text-body-sm md:text-body text-muted-foreground mb-4 md:mb-6">
                 Drag & Drop or Click to Select
               </p>
             </div>
-            <p className="text-body-sm text-muted-foreground mb-6">
+            <p className="text-xs md:text-body-sm text-muted-foreground mb-4 md:mb-6 px-2">
               Supported: PDF, Markdown (.md), PowerPoint (.pptx, .ppt), Text (.txt)
               <br />
               Max size: 50MB
@@ -198,7 +198,7 @@ export default function PitchUploader({ onUpload }: PitchUploaderProps) {
             />
             <button
               onClick={() => fileInputRef.current?.click()}
-              className="px-8 py-3 bg-gradient-to-r from-primary to-[#1A6873] text-primary-foreground font-semibold rounded-base hover:shadow-card-hover hover:scale-[1.02] active:scale-[0.98] transition-all"
+              className="px-6 md:px-8 py-2 md:py-3 text-sm md:text-base bg-gradient-to-r from-primary to-[#1A6873] text-primary-foreground font-semibold rounded-base hover:shadow-card-hover hover:scale-[1.02] active:scale-[0.98] transition-all"
             >
               Browse Files
             </button>
@@ -207,20 +207,20 @@ export default function PitchUploader({ onUpload }: PitchUploaderProps) {
 
         {/* URL Input */}
         {uploadType === 'url' && (
-          <div className="glass rounded-lg p-6 space-y-4">
+          <div className="glass rounded-lg p-4 md:p-6 space-y-3 md:space-y-4">
             <div>
-              <label className="block text-sm font-medium mb-2 text-foreground">URL</label>
+              <label className="block text-xs md:text-sm font-medium mb-2 text-foreground">URL</label>
               <input
                 type="url"
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
-                className="w-full px-4 py-2 bg-card border border-border rounded-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                className="w-full px-3 md:px-4 py-2 bg-card border border-border rounded-base text-sm md:text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                 placeholder="https://example.com/pitch"
               />
             </div>
             <button
               onClick={handleUrlSubmit}
-              className="w-full px-8 py-3 bg-gradient-to-r from-primary to-[#1A6873] text-primary-foreground font-semibold rounded-base hover:shadow-card-hover hover:scale-[1.02] active:scale-[0.98] transition-all"
+              className="w-full px-6 md:px-8 py-2 md:py-3 text-sm md:text-base bg-gradient-to-r from-primary to-[#1A6873] text-primary-foreground font-semibold rounded-base hover:shadow-card-hover hover:scale-[1.02] active:scale-[0.98] transition-all"
             >
               Submit URL
             </button>
@@ -229,19 +229,19 @@ export default function PitchUploader({ onUpload }: PitchUploaderProps) {
 
         {/* Text Input */}
         {uploadType === 'text' && (
-          <div className="glass rounded-lg p-6 space-y-4">
+          <div className="glass rounded-lg p-4 md:p-6 space-y-3 md:space-y-4">
             <div>
-              <label className="block text-sm font-medium mb-2 text-foreground">Pitch Text</label>
+              <label className="block text-xs md:text-sm font-medium mb-2 text-foreground">Pitch Text</label>
               <textarea
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                className="w-full px-4 py-3 bg-card border border-border rounded-base text-foreground placeholder:text-muted-foreground min-h-[200px] focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-y"
+                className="w-full px-3 md:px-4 py-2 md:py-3 bg-card border border-border rounded-base text-sm md:text-base text-foreground placeholder:text-muted-foreground min-h-[150px] md:min-h-[200px] focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-y"
                 placeholder="Paste your pitch text here..."
               />
             </div>
             <button
               onClick={handleTextSubmit}
-              className="w-full px-8 py-3 bg-gradient-to-r from-primary to-[#1A6873] text-primary-foreground font-semibold rounded-base hover:shadow-card-hover hover:scale-[1.02] active:scale-[0.98] transition-all"
+              className="w-full px-6 md:px-8 py-2 md:py-3 text-sm md:text-base bg-gradient-to-r from-primary to-[#1A6873] text-primary-foreground font-semibold rounded-base hover:shadow-card-hover hover:scale-[1.02] active:scale-[0.98] transition-all"
             >
               Submit Text
             </button>
