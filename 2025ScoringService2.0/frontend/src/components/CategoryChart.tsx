@@ -21,10 +21,10 @@ export default function CategoryChart({ category, score }: CategoryChartProps) {
   }
 
   return (
-    <div className="glass rounded-lg p-6 flex flex-col items-center text-center hover:shadow-card-hover transition-all">
-      <div className="mb-4 text-4xl">{category.icon}</div>
-      <div className="relative w-32 h-32 mb-4">
-        <svg className="transform -rotate-90 w-full h-full">
+    <div className="glass rounded-lg p-4 md:p-6 flex flex-col items-center text-center hover:shadow-card-hover transition-all">
+      <div className="mb-3 md:mb-4 text-2xl md:text-4xl">{category.icon}</div>
+      <div className="relative w-24 h-24 md:w-32 md:h-32 mb-3 md:mb-4">
+        <svg className="transform -rotate-90 w-full h-full" viewBox="0 0 128 128">
           <circle
             cx="64"
             cy="64"
@@ -54,13 +54,13 @@ export default function CategoryChart({ category, score }: CategoryChartProps) {
           </defs>
         </svg>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className={`text-2xl font-bold ${getScoreColor(score)}`}>
+          <div className={`text-xl md:text-2xl font-bold ${getScoreColor(score)}`}>
             {score.toFixed(0)}
           </div>
         </div>
       </div>
-      <h3 className="text-body-sm font-medium text-foreground mb-1">{category.label}</h3>
-      <p className="text-body-xs text-muted-foreground">{category.key}</p>
+      <h3 className="text-xs md:text-body-sm font-medium text-foreground mb-1">{category.label}</h3>
+      <p className="text-[10px] md:text-body-xs text-muted-foreground">{category.key}</p>
     </div>
   )
 }
