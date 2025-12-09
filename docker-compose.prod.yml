@@ -59,21 +59,21 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=dokploy-network"
-      # Traefik service
-      - "traefik.http.services.scoring-frontend.loadbalancer.server.port=80"
+      # Traefik service - use unique name to avoid conflicts
+      - "traefik.http.services.gigacourme-frontend.loadbalancer.server.port=80"
       # HTTPS router with SSL certificate
-      - "traefik.http.routers.scoring-frontend-https.rule=Host(`gigacourme.ru`) || Host(`www.gigacourme.ru`)"
-      - "traefik.http.routers.scoring-frontend-https.entrypoints=websecure"
-      - "traefik.http.routers.scoring-frontend-https.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.scoring-frontend-https.service=scoring-frontend"
+      - "traefik.http.routers.gigacourme-https.rule=Host(`gigacourme.ru`) || Host(`www.gigacourme.ru`)"
+      - "traefik.http.routers.gigacourme-https.entrypoints=websecure"
+      - "traefik.http.routers.gigacourme-https.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.gigacourme-https.service=gigacourme-frontend"
       # HTTP router - redirect to HTTPS
-      - "traefik.http.routers.scoring-frontend-http.rule=Host(`gigacourme.ru`) || Host(`www.gigacourme.ru`)"
-      - "traefik.http.routers.scoring-frontend-http.entrypoints=web"
-      - "traefik.http.routers.scoring-frontend-http.middlewares=redirect-to-https"
-      - "traefik.http.routers.scoring-frontend-http.service=scoring-frontend"
+      - "traefik.http.routers.gigacourme-http.rule=Host(`gigacourme.ru`) || Host(`www.gigacourme.ru`)"
+      - "traefik.http.routers.gigacourme-http.entrypoints=web"
+      - "traefik.http.routers.gigacourme-http.middlewares=gigacourme-redirect"
+      - "traefik.http.routers.gigacourme-http.service=gigacourme-frontend"
       # Redirect middleware
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true"
+      - "traefik.http.middlewares.gigacourme-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.gigacourme-redirect.redirectscheme.permanent=true"
 
 volumes:
   postgres_data:
