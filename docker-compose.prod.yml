@@ -59,9 +59,11 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=dokploy-network"
-      # Use port 3000 (host port) for Traefik
-      - "traefik.http.services.web-scoringservice-opntp9-5-web.loadbalancer.server.port=3000"
-      - "traefik.http.services.web-scoringservice-opntp9-5-websecure.loadbalancer.server.port=3000"
+      # Traefik routes for gigacourme.ru
+      - "traefik.http.services.scoring-frontend.loadbalancer.server.port=80"
+      - "traefik.http.routers.scoring-frontend.rule=Host(`gigacourme.ru`)"
+      - "traefik.http.routers.scoring-frontend.entrypoints=websecure"
+      - "traefik.http.routers.scoring-frontend.tls.certresolver=letsencrypt"
 
 volumes:
   postgres_data:
