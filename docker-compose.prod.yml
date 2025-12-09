@@ -59,11 +59,21 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=dokploy-network"
-      # Traefik routes for gigacourme.ru
+      # Traefik service
       - "traefik.http.services.scoring-frontend.loadbalancer.server.port=80"
-      - "traefik.http.routers.scoring-frontend.rule=Host(`gigacourme.ru`)"
-      - "traefik.http.routers.scoring-frontend.entrypoints=websecure"
-      - "traefik.http.routers.scoring-frontend.tls.certresolver=letsencrypt"
+      # HTTPS router with SSL certificate
+      - "traefik.http.routers.scoring-frontend-https.rule=Host(`gigacourme.ru`) || Host(`www.gigacourme.ru`)"
+      - "traefik.http.routers.scoring-frontend-https.entrypoints=websecure"
+      - "traefik.http.routers.scoring-frontend-https.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.scoring-frontend-https.service=scoring-frontend"
+      # HTTP router - redirect to HTTPS
+      - "traefik.http.routers.scoring-frontend-http.rule=Host(`gigacourme.ru`) || Host(`www.gigacourme.ru`)"
+      - "traefik.http.routers.scoring-frontend-http.entrypoints=web"
+      - "traefik.http.routers.scoring-frontend-http.middlewares=redirect-to-https"
+      - "traefik.http.routers.scoring-frontend-http.service=scoring-frontend"
+      # Redirect middleware
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true"
 
 volumes:
   postgres_data:
