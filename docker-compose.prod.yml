@@ -74,6 +74,16 @@ services:
       # Redirect middleware
       - "traefik.http.middlewares.gigacourme-redirect.redirectscheme.scheme=https"
       - "traefik.http.middlewares.gigacourme-redirect.redirectscheme.permanent=true"
+      # Subdomain startup-scorer.gigacourme.ru - HTTPS router
+      - "traefik.http.routers.startup-scorer-https.rule=Host(`startup-scorer.gigacourme.ru`)"
+      - "traefik.http.routers.startup-scorer-https.entrypoints=websecure"
+      - "traefik.http.routers.startup-scorer-https.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.startup-scorer-https.service=gigacourme-frontend"
+      # Subdomain startup-scorer.gigacourme.ru - HTTP router (redirect to HTTPS)
+      - "traefik.http.routers.startup-scorer-http.rule=Host(`startup-scorer.gigacourme.ru`)"
+      - "traefik.http.routers.startup-scorer-http.entrypoints=web"
+      - "traefik.http.routers.startup-scorer-http.middlewares=gigacourme-redirect"
+      - "traefik.http.routers.startup-scorer-http.service=gigacourme-frontend"
 
 volumes:
   postgres_data:
